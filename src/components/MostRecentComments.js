@@ -8,7 +8,7 @@ function MostRecentComments ({ comments, users, articles }) {
             const articleTitle = articles.filter(({ _id }) => _id === belongs_to)[0].title;
             const articleId = articles.filter(({ _id }) => _id === belongs_to)[0]._id;
             return <div key={_id + `${created_at}`}>
-                <h6 id='recentComment'>{body}</h6>
+                <h6 id='recentComment'>- {body}</h6>
                 <h6 className='postedOn'>Posted by <a href={`/users/${username}`}>{username}</a> on 
                     <span> <a href={`articles/${articleId}`}>{articleTitle}</a></span></h6>
             </div>

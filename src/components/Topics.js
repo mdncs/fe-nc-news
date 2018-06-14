@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import * as api from '../api';
 
 
 class Topics extends Component {
+    state = {
+        topics: []
+    }
 
+    componentDidMount() {
+        api.fetchTopics().then(topics => {
+            this.setState({topics});
+        })
+    }
     render () {
-        const { topics } = this.props;
+        const { topics } = this.state;
         return <div>
-            <h4 className='containerTitle'>Topics:</h4>
+            <h4 className='containerTitle'>Browse articles by topic:</h4>
             {topics.map(({ title, _id }) => {
                 return <h5 id='topic' key={_id}>
-                    <a href={`/topics/${_id}`}>{title}</a>
+                    <Link to={`/topics/${_id}/articles`}>{title}</Link>
+                    
                 </h5>
             })}
         </div>

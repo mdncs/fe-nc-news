@@ -1,43 +1,33 @@
 import React, { Component } from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
 import '../index.css';
-import { topics } from '../data/topics';
-import { articles } from '../data/articles';
-import { comments } from '../data/comments';
-import { users } from '../data/users';
-import Topics from './Topics';
-import FilterMostPopularArticles from './FilterMostPopularArticles';
-import MostRecentComments from './MostRecentComments';
+import HomePage from './HomePage';
+import Articles from './Articles';
+import ArticlesByTopicId from './ArticlesByTopicId';
+import ArticleByArticleId from './ArticleByArticleId';
+import UserByUsername from './UserByUsername';
 
 class App extends Component {
-  state = {
-    topics: topics,
-    articles: articles,
-    comments: comments,
-    users: users
-  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Northcoders News</h1>
+        <header className="mainTitle">
+          <h1><Link to={'/'}>Northcoders News</Link></h1>
         </header>
         <nav id='navHeader'>
-          Most popular topics | Sort by: popularity, views, comments  
+          <span className='navButton'><Link to={'/'}>Home</Link> | </span>
+          <span className='navButton'><Link to={`/articles`}>All articles</Link> | </span>
+          {/* <span className='navButton'><Link to={`/users`}>All comments</Link> | </span */}
         </nav>
-        <div id='mainContainer'>
-          <div id='topicsContainer'>
-            <Topics topics={this.state.topics}/>
-          </div>
-          <div id='mostRecentComments'>
-            <MostRecentComments comments={comments.sort((a, b) => b.created_at - a.created_at)} 
-                                users={this.state.users} articles={this.state.articles} />
-          </div>
-          <div id='popularArticles'>
-            <FilterMostPopularArticles articles={this.state.articles.sort((a, b) => b.votes - a.votes)}
-                                       topics={this.state.topics} users={this.state.users} />
-          </div>
-        </div>
+        <Switch>
+          <Route exact path={'/'} component={HomePage}/>
+          <Route exact path={`/articles`} component={Articles} />
+          <Route path={`/articles/:articleId`} component={ArticleByArticleId}/>
+          <Route path={`/topics/:topicId/articles`} component={ArticlesByTopicId} />
+          <Route path={`/users/:username`} component={UserByUsername} />
+        </Switch>
+        
       </div>
     );
   }

@@ -10,6 +10,11 @@ body {
   text-align: center;
 }
 
+.mainTitle {
+  color: darkred;
+  text-decoration: none;
+}
+
 #navHeader {
   border: solid green 1px;
 }
@@ -38,6 +43,7 @@ body {
   display: flex;
   margin: 5%;
   height: 20em;
+  overflow: scroll;
 }
 
 .subheading {
@@ -66,4 +72,39 @@ body {
 #recentComment {
   text-align: left;
   margin-left: 5%;
+}
+
+#articleTitle {
+  color: darkred;
+}
+
+#articleBody {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 30px;
+  font-family: cursive;
+}
+
+.authorName {
+  text-align: right;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 2%;
+}
+
+.moreBy {
+  text-align: right;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 2%;
+  margin-top: 10%;
+}
+
+#avatarImg {
+  max-width: 15em;
+  max-height: 15em;
+}
+
+footer {
+  margin-top: 5em;
 }
