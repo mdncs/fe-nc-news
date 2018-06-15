@@ -10,22 +10,15 @@ class ArticlesByTopicId extends Component {
     }
 
     componentDidMount() {
+        const { topicId } = this.props.match.params;
         return Promise.all([
-            api.fetchArticlesByTopicId(this.props.match.params.topicId),
+            api.fetchArticlesByTopicId(topicId),
             api.fetchTopics(),
             api.fetchUsers()
         ])
-            .then(([articles, topics, users]) => {
-                this.setState({ articles, topics, users })
-            })
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.match.params.topicId !== prevProps.match.params.topicId) {
-            api.fetchArticlesByTopicId(this.props.match.params.topicId).then(articles => {
-                this.setState({ articles })
-            });
-        }
+        .then(([articles, topics, users]) => {
+            this.setState({ articles, topics, users })
+        })
     }
 
     render() {

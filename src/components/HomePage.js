@@ -24,7 +24,6 @@ class HomePage extends Component {
     }
 
     render() {
-        console.log(this.state.articles)
         return <div id='mainContainer'>
             <div id='topicsContainer'>
                 <Topics />

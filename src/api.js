@@ -33,3 +33,9 @@ export const fetchUserByUsername = username => {
     return axios.get(`${url}/users/${username}`).then(res => res.data.user)
 };
 
+export const fetchCommentsByArticleId = id => {
+    return axios.get(`${url}/articles/${id}/comments`).then(res => {
+        return res.data.comments;
+    });
+}
+

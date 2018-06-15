@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as api from '../api';
+import CommentsByArticleId from './CommentsByArticleId';
 
 class ArticleByArticleId extends Component {
     state = {
@@ -16,25 +17,29 @@ class ArticleByArticleId extends Component {
             api.fetchUsers(),
             api.fetchTopics()
         ])
-       .then(([article, users, topics]) => {
-            this.setState({ article, users, topics });
-        });
+       .then(([article, users, topics]) => this.setState({ article, users, topics }));
     };
 
     render() {
-        const { article } = this.state;
+        const { article, users, topics } = this.state;
 
         if (!article) return null;
         else {
-            const username = this.state.users.filter(({ _id }) => _id === article.created_by)[0].username;
-            const topic = this.state.topics.filter(({ _id }) => _id === article.belongs_to)[0];
+            const username = users.filter(({ _id }) => _id === article.created_by)[0].username;
+            const topic = topics.filter(({ _id }) => _id === article.belongs_to)[0];
             return (
             <div>
-                <h1 id='articleTitle'>{article.title}</h1>
-                <h5 className='authorName'>by <Link to={`/users/${username}`}>{username}</Link></h5>
-                <p id='articleBody'>{article.body}</p>
-                <h6 className='moreBy'><Link to={`/users/${username}`}>(more articles by {username})</Link></h6>
-                <footer>Browse more articles in <Link to={`/topics/${topic._id}/articles`}>{topic.title}</Link> </footer>
+                <div id='articleData'>
+                    <h1 id='articleTitle'>{article.title}</h1>
+                    <h5 className='authorName'>by <Link to={`/users/${username}`}>{username}</Link></h5>
+                    <p id='articleBody'>{article.body}</p>
+                    <h6 className='moreBy'><Link to={`/users/${username}`}>(more articles by {username})</Link></h6>
+                    <footer>Browse more articles in <Link to={`/topics/${topic._id}/articles`}>{topic.title}</Link> </footer>
+                </div>
+                <div id='commentData'>
+                    <h3>Comments</h3>
+                    <CommentsByArticleId {...this.props}/>
+                </div>
             </div>
             ) 
         }      
