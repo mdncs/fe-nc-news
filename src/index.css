@@ -108,3 +108,9 @@ body {
 footer {
   margin-top: 5em;
 }
+
+.user {
+  display: inline-block;
+  min-width: 30%;
+  margin-top: 2em;
+}

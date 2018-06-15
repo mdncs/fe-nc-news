@@ -4,6 +4,7 @@ import '../index.css';
 import HomePage from './HomePage';
 import Articles from './Articles';
 import Topics from './Topics';
+import Users from './Users';
 import ArticlesByTopicId from './ArticlesByTopicId';
 import ArticleByArticleId from './ArticleByArticleId';
 import UserByUsername from './UserByUsername';
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path={`/articles`} component={Articles} />
           <Route exact path={`/articles/:articleId`} component={ArticleByArticleId} />}/>
           <Route path={`/topics/:topicId/articles`} component={ArticlesByTopicId} />} />
+          <Route path={`/users`} component={Users} />
           <Route path={`/users/:username`} component={UserByUsername} />
           <Route path={`/articles/:articleId/comments`} component={CommentsByArticleId} />
         </Switch>

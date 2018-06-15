@@ -29,7 +29,7 @@ class CommentsByArticleId extends Component {
                     const article = articles.filter(article => article._id === belongs_to)[0];
                     const user = users.filter(user => user._id === created_by)[0];
                     return <div key={_id}>
-                    <h2>All comments for <Link to={`/articles/${article._id}`}> {article.title}</Link></h2>
+                    <h2>All <Link to={`/articles/${article._id}/comments`}>comments</Link> for <Link to={`/articles/${article._id}`}> {article.title}</Link></h2>
                         <p>{body} ({votes} votes)</p>
                         <p>posted by <Link to={`/users/${user.username}`}>{`${user.username}`}</Link> {utils.getTimeDiff(created_at)} </p>
                     </div>

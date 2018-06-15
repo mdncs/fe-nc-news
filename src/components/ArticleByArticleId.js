@@ -37,7 +37,6 @@ class ArticleByArticleId extends Component {
                     <footer>Browse more articles in <Link to={`/topics/${topic._id}/articles`}>{topic.title}</Link> </footer>
                 </div>
                 <div id='commentData'>
-                    <h3>Comments</h3>
                     <CommentsByArticleId {...this.props}/>
                 </div>
             </div>
