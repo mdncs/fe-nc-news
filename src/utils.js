@@ -16,5 +16,5 @@ export const getTimeDiff = (timestamp) => {
     secondsSince -= minutes * 60;
     if (minutes) return `${minutes} minutes ago`;
 
-    return `${secondsSince % 60} seconds ago`;
+    return `${Math.floor(secondsSince % 60)} seconds ago`;
 }

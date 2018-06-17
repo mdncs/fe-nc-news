@@ -56,7 +56,6 @@ body {
 }
 
 .postedOn {
-  margin-top: -3%;
   text-align: right;
 }
 
@@ -113,4 +112,46 @@ footer {
   display: inline-block;
   min-width: 30%;
   margin-top: 2em;
+}
+
+.commentData {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 3%;
+  background-color: ivory;
+}
+
+.votingAndPosting {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 3%;
+  border: solid springgreen 1px;
+  margin-bottom: 3%;
+}
+
+.votingAndPostingComment {
+  background-color: ivory;
+  border: solid green 5px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 2%;
+}
+
+.voteButton {
+  width: 5em;
+  margin-bottom: 1%;
+}
+
+.deleteButtonDiv {
+  width: 50%;
+  margin-bottom: 2%;
+  margin: 0 auto;
+}
+
+.deleteButton {
+  float: center;
+  background-color: red;
+  margin: 1%;
 }

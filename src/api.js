@@ -34,8 +34,25 @@ export const fetchUserByUsername = username => {
 };
 
 export const fetchCommentsByArticleId = id => {
-    return axios.get(`${url}/articles/${id}/comments`).then(res => {
-        return res.data.comments;
-    });
+    return axios.get(`${url}/articles/${id}/comments`).then(res => res.data.comments);
 }
 
+export const postArticle = (topicId, article) => {
+    return axios.post(`${url}/topics/${topicId}/articles`, article).then(res => res.data.article);
+}
+
+export const postComment = (articleId, comment) => {
+    return axios.post(`${url}/articles/${articleId}/comments`, comment).then(res => res.data.comment);
+}
+
+export const voteArticle = (id, direction) => {
+    return axios.put(`${url}/articles/${id}?vote=${direction}`).then(res => res.data);
+};
+
+export const voteComment = (id, direction) => {
+    return axios.put(`${url}/comments/${id}?vote=${direction}`).then(res => res.data);
+};
+
+export const deleteComment = id => {
+    return axios.delete(`${url}/comments/${id}`).then(res => res.data.comment);
+}

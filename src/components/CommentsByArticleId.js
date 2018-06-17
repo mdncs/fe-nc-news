@@ -1,42 +1,46 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import * as api from '../api';
-import * as utils from '../utils';
+import PostComment from './PostComment';
+import VoteComment from './VoteComment';
+import DeleteComment from './DeleteComment';
 
 class CommentsByArticleId extends Component {
     state = {
-        comments: [],
-        articles: [],
-        users: []
+        comments: null,
+        articles: []
     }
 
-    componentDidMount() {
-        const { articleId } = this.props.match.params;
+    componentDidMount () {
         return Promise.all([
-            api.fetchCommentsByArticleId(articleId),
-            api.fetchArticles(),
-            api.fetchUsers()
+            api.fetchCommentsByArticleId(this.props.match.params.articleId),
+            api.fetchArticles()
         ])
-        .then(([comments, articles, users]) => this.setState({ comments, articles, users }))
+        .then(([comments, articles]) => this.setState({ comments, articles }));
     }
 
     render() {
-        const { comments, articles, users } = this.state;
-        if (!comments.length) return null;
-        return (
+        const { comments, articles } = this.state;
+        const article = articles.filter(article => article._id === this.props.match.params.articleId);
+        if (!comments) return null;
+        return <div>
+            <PostComment article={article[0]}/>
             <div>
-                {comments.map(({ body, created_at, votes, _id, belongs_to, created_by }) => {
-                    const article = articles.filter(article => article._id === belongs_to)[0];
-                    const user = users.filter(user => user._id === created_by)[0];
-                    return <div key={_id}>
-                    <h2>All <Link to={`/articles/${article._id}/comments`}>comments</Link> for <Link to={`/articles/${article._id}`}> {article.title}</Link></h2>
-                        <p>{body} ({votes} votes)</p>
-                        <p>posted by <Link to={`/users/${user.username}`}>{`${user.username}`}</Link> {utils.getTimeDiff(created_at)} </p>
+                {comments.sort((a, b) => b.votes - a.votes).map(comment => {
+                    return <div key={comment._id}>
+                        <p className='commentData'>{comment.body}</p>
+                        <div>
+                            <DeleteComment comment={comment} />
+                            </div>
+                            <div>
+                            <VoteComment comment={comment}/>
+                        </div>
                     </div>
                 })}
             </div>
-        )
+        </div>
     }
 }
 
 export default CommentsByArticleId;
+
+

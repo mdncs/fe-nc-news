@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Topics from './Topics';
-import FilterMostPopularArticles from './FilterMostPopularArticles';
+import Articles from './Articles';
 import MostRecentComments from './MostRecentComments';
 import * as api from '../api';
 
@@ -20,7 +20,10 @@ class HomePage extends Component {
             api.fetchUsers(),
             api.fetchComments()
         ])
-        .then(([articles, topics, users, comments]) => this.setState({ articles, topics, users, comments }));
+        .then(([articles, topics, users, comments]) => this.setState({ articles, topics, users, comments }))
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
     }
 
     render() {
@@ -33,8 +36,10 @@ class HomePage extends Component {
                     users={this.state.users} articles={this.state.articles} />
             </div>
             <div id='popularArticles'>
-                <FilterMostPopularArticles articles={this.state.articles.sort((a, b) => b.votes - a.votes)}
-                    topics={this.state.topics} users={this.state.users}/>
+                <div id='popularArticle'>
+                    <h3 className='subheading'>Most popular articles:</h3>
+                    <Articles />
+                </div>
             </div>
         </div>
     }

@@ -26,21 +26,25 @@ class ArticlesByTopicId extends Component {
         if (!articles.length) return null;
         const topic = topics.filter(({ _id }) => _id === this.props.match.params.topicId)[0];
         return (
-            <div>
+            <React.Fragment>
                 <h1>Articles about {topic.slug}</h1>
                 {articles.map(article => {
                     return (
-                        <div key={article._id}>
-                            <Link to={`/articles/${article._id}`}>{article.title}</Link>
+                        <React.Fragment key={article._id}>
+                            <Link to={`/articles/${article._id}`} key={article._id}>{article.title}</Link>
                             <p>by <Link to={`../../users/${users.filter(({ _id }) => _id === article.created_by)[0].username}`}>
                                 {users.filter(({ _id }) => _id === article.created_by)[0].username}
                             </Link></p>
-                        </div>
+                        </React.Fragment>
                     )
                 })}
-            </div>
+            </React.Fragment>
         )
     }
+
+    
+
+
 }
 
 export default ArticlesByTopicId;
