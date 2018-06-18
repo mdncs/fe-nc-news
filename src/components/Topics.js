@@ -19,7 +19,6 @@ class Topics extends Component {
     render() {
         const { topics } = this.state;
         return <React.Fragment>
-            <h3 className='topicTitle'>Articles about: </h3>
                 {topics.map(({ title, _id }) => {
                 return <p className='topic' key={_id} className='topic'>
                         <Link to={`/topics/${_id}/articles`} className='link'> {title}</Link>
