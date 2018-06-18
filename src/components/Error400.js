@@ -4,9 +4,10 @@ import '../404error.css';
 
 class Error404 extends Component {
     render() {
-        return <p>
+        return <React.Fragment>
+            <p>Something went wrong...</p>
             <Link to={`/`} className='goBackHome'><button>Go back home</button></Link>
-        </p>
+        </React.Fragment>
     }
 }
 

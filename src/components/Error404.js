@@ -4,9 +4,10 @@ import '../404error.css';
 
 class Error404 extends Component  {
     render() {
-        return <p>
+        return <div>
+            <p>Ooops, looks like this page doesn't exist :(</p>
             <Link to={`/`} className='goBackHome'><button>Go back home</button></Link>
-        </p>
+        </div>
     }
 }
 
