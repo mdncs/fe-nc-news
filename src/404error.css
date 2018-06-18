@@ -1,0 +1,20 @@
+body {
+    background: url('https://cdn-images-1.medium.com/max/1600/1*C8_Bkzt7pPbkztckqEvmqg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+}
+
+.goBackHome {
+    position: relative;
+    top: 44em;
+}
+
+button {
+    width: 10em;
+    height: 2.5em;
+    background: lightblue;
+    font-weight: bold;
+    font-size: 1.5em;
+}

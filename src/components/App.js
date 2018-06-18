@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="header">
-          <h1 id='headerTitle'><Link to={'/'} className='link'>Northcoders News</Link></h1>
+          <h1><Link to={'/'} className='headerTitle'>Northcoders News</Link></h1>
           <nav id='navHeader'>
             <span ><Link to={'/'} className='navButton'>Home</Link></span>
             <span ><Link to={`/articles`} className='navButton'>All articles</Link></span>

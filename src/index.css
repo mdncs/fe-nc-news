@@ -25,6 +25,13 @@ body {
   border: solid darkred 2px;
 }
 
+.headerTitle {
+  text-decoration: none;
+  color: darkred;
+  font-size: 3em;
+  margin-left: 15%;
+}
+
 #navHeader {
   display: flex;
   justify-content: space-evenly;
@@ -170,7 +177,6 @@ body {
 
 #articleVotes {
   padding-top: 5%;
-  border: solid red 5px;
   width: 10%;
   margin: 0 auto;
   font-size: 1em;
@@ -286,6 +292,9 @@ footer {
   border-radius: 10%;
 }
 
+.errorMessage {
+  font-size: 5em;
+}
 
 @media screen and (min-width: 350px) and (max-width: 1400px) {
 
