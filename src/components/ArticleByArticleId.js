@@ -32,18 +32,18 @@ class ArticleByArticleId extends Component {
             const topic = topics.filter(({ _id }) => _id === article.belongs_to)[0];
             return <React.Fragment>
                 <div id='articleData'>
-                    <h1 id='articleTitle'><Link to={`/articles/${article._id}`} key={article._id}>{article.title}</Link></h1>
-                    <h5 className='authorName'>by <Link to={`/users/${username}`}>{username}</Link></h5>
+                    <h1 id='articleTitle'><Link to={`/articles/${article._id}`} key={article._id} className='link'>{article.title}</Link></h1>
+                    <h5 className='authorName'>by <Link to={`/users/${username}`} className='link'>{username}</Link></h5>
                     <p id='articleBody'>{article.body}</p>
-                    <div>
+                    <div id='articleVotes'>
                         <VoteArticle {...this.props}/>
                     </div>
-                    <h6 className='moreBy'><Link to={`/users/${username}`}>(more articles by {username})</Link></h6>
-                    <footer>Browse more articles in <Link to={`/topics/${topic._id}/articles`}>{topic.title}</Link> </footer>
+                    <h6 className='moreBy'><Link to={`/users/${username}`} className='link'>(more articles by {username})</Link></h6>
+                    <footer id='browseMoreArticles'>Browse more articles in <Link to={`/topics/${topic._id}/articles`} class='link'>{topic.title}</Link> </footer>
                 </div>
                 <div id='commentData'>
-                    <h2>All <Link to={`/articles/${article._id}/comments`}>comments</Link> for this article</h2>
-                    <h3>Post a comment</h3>
+                    <h2 className='allItemsTitle'>All <Link to={`/articles/${article._id}/comments`} className='link' class='link'>comments</Link> for this article</h2>
+                    <h3 class='postItemSubheading'>Post a comment</h3>
                     <CommentsByArticleId {...this.props} />
                 </div>
             </React.Fragment>

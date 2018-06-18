@@ -18,16 +18,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="mainTitle">
-          <h1><Link to={'/'}>Northcoders News</Link></h1>
+        <header className="header">
+          <h1 id='headerTitle'><Link to={'/'} className='link'>Northcoders News</Link></h1>
+          <nav id='navHeader'>
+            <span ><Link to={'/'} className='navButton'>Home</Link></span>
+            <span ><Link to={`/articles`} className='navButton'>All articles</Link></span>
+            <span ><Link to={`/users`} className='navButton'>All users</Link></span>
+            <span ><Link to={`/submit`} className='navButton'>Post an article</Link></span>
+          </nav>
         </header>
-        <nav id='navHeader'>
-          <span className='navButton'><Link to={'/'}>Home</Link> | </span>
-          <span className='navButton'><Link to={`/articles`}>All articles</Link> | </span>
-          {/* <span className='navButton'><Link to={`/users`}>All comments</Link> | </span */}
-          <span className='navButton'><Link to={`/submit`}>Post an article</Link> | </span>
-
-        </nav>
+        
         <Switch>
           <Route exact path={'/'} component={HomePage}/>
           <Route exact path={`/topics`} component={Topics} />

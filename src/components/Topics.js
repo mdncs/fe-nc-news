@@ -11,18 +11,21 @@ class Topics extends Component {
     componentDidMount() {
         api.fetchTopics()
         .then(topics => this.setState({ topics }))
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
     }
 
     render() {
         const { topics } = this.state;
-        return <div>
-            <h4 className='containerTitle'>Browse articles by topic:</h4>
-            {topics.map(({ title, _id }) => {
-                return <h5 id='topic' key={_id}>
-                    <Link to={`/topics/${_id}/articles`}>{title}</Link>
-                </h5>
-            })}
-        </div>
+        return <React.Fragment>
+            <h3 className='topicTitle'>Articles about: </h3>
+                {topics.map(({ title, _id }) => {
+                return <p className='topic' key={_id} className='topic'>
+                        <Link to={`/topics/${_id}/articles`} className='link'> {title}</Link>
+                    </p>
+                })}
+        </React.Fragment>
     }  
 }
 

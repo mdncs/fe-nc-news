@@ -19,6 +19,9 @@ class ArticlesByTopicId extends Component {
         .then(([articles, topics, users]) => {
             this.setState({ articles, topics, users })
         })
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
     }
 
     render() {
@@ -27,12 +30,12 @@ class ArticlesByTopicId extends Component {
         const topic = topics.filter(({ _id }) => _id === this.props.match.params.topicId)[0];
         return (
             <React.Fragment>
-                <h1>Articles about {topic.slug}</h1>
+                <h1 id='articleTitle'>Articles about {topic.slug}</h1>
                 {articles.map(article => {
                     return (
                         <React.Fragment key={article._id}>
-                            <Link to={`/articles/${article._id}`} key={article._id}>{article.title}</Link>
-                            <p>by <Link to={`../../users/${users.filter(({ _id }) => _id === article.created_by)[0].username}`}>
+                            <Link to={`/articles/${article._id}`} key={article._id} className='link'>{article.title}</Link>
+                            <p>by <Link to={`../../users/${users.filter(({ _id }) => _id === article.created_by)[0].username}`} className='link'>
                                 {users.filter(({ _id }) => _id === article.created_by)[0].username}
                             </Link></p>
                         </React.Fragment>

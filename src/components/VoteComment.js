@@ -11,6 +11,10 @@ class VoteComment extends Component {
 
     componentDidMount() {
         api.fetchUsers().then(users => this.setState({ users }))
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
+
     }
 
     render() {

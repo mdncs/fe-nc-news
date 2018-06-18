@@ -7,7 +7,10 @@ class VoteArticle extends Component {
     }
 
     componentDidMount() {
-        api.fetchArticlebyArticleId(this.props.match.params.articleId).then(article => this.setState({ article }));
+        api.fetchArticlebyArticleId(this.props.match.params.articleId).then(article => this.setState({ article }))
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
     }
 
     render() {
@@ -15,7 +18,7 @@ class VoteArticle extends Component {
         return (
             <div className='votingAndPosting'>
                 <div className='votesCount'>
-                    <label>Votes: {article.votes}</label>
+                    <label id='articleVotesLabel'>Votes: {article.votes}</label>
                 </div>
                 <div className='voteButtons'>
                     <button className='voteButton' onClick={() => this.handleVoteClick(true)}><span className='voteImg' role="img" aria-label="thumbsUp">⬆️</span></button>
@@ -25,7 +28,7 @@ class VoteArticle extends Component {
             </div>
         )
     }
-
+    
     handleVoteClick = up => {
         const { article } = this.state;
         const newArticle = Object.assign({}, { ...article, votes: up ? article.votes + 1 : article.votes - 1});

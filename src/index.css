@@ -1,76 +1,152 @@
 body {
+  background-color: white;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
 
 #root {
+  background-color: white;
   position: flex;
   justify-content: center;
   text-align: center;
 }
 
-.mainTitle {
-  color: darkred;
+.link {
   text-decoration: none;
+  color: darkred;
+  text-decoration: underline;
+  font-size: 1em;
+}
+
+.header {
+  text-align: left;
+  background-color: ivory;
+  border: solid darkred 2px;
 }
 
 #navHeader {
-  border: solid green 1px;
+  display: flex;
+  justify-content: space-evenly;
+  border-top: solid orange 2px;
+  background-color: white;
+  font-size: 100%;
+  padding-top: 1%;
 }
 
-#mainContainer {
-  border: solid palevioletred 1px;
-  margin-top: 5%;
+.navButton {
+  width: 20%;
+  justify-content: space-evenly;
+  font-size: 3em;
+  text-decoration: none;
+  color: orangered;
+  font-family: fantasy;
+  font-weight: bold;
+  padding-bottom: 1em;
 }
 
-#topicsContainer {
-  width: 15%;
-  height: 20em;
-  border: solid red 1px;
-  margin: 5%;
-  margin-left: 0;
-  float: left;
-}
+  #mainContainer {
+    display: block;
+  }
+
+  #topicsContainer {
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: ivory;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .topicTitle {
+    font-size: 2.2em;
+    color: darkred;
+  }
+
+  .topic {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    width: 20%;
+    padding-left: 3%;
+    text-decoration: none;
+    color: darkred;
+  }
 
 .containerTitle {
+  color: darkred;
   text-decoration: underline;
 }
 
+#allArticlesList {
+  color: darkred;
+  font-size: 1.5em;
+
+}
+
 #popularArticles {
-  border: solid purple 1px;
+  border: solid orange 4px;
   width: 45%;
   display: flex;
   margin: 5%;
-  height: 20em;
+  height: 30em;
   overflow: scroll;
 }
 
 .subheading {
+  text-decoration: underline;
+  color: orangered;
+  font-size: 2.5em;
   text-align: center;
 }
 
 #popularArticle {
   text-align: left;
-  margin-left: 2%;
+  font-size: 1em;
+  margin-left: 5%;
+  margin-right: 2%;
+}
+
+
+.homePageItems {
+  font-size: 1.2em;
 }
 
 .postedOn {
+  color: darkred;
   text-align: right;
+  margin-left: 10%;
+}
+
+.postedBy {
+  font-size: 1em;
+  color: darkred;
 }
 
 #mostRecentComments {
-  border: solid blue 1px;
+  color: darkred;
+  text-align: left;
+  border: solid orange 4px;
   float: right;
   width: 30%;
-  height: 20em;
+  height: 30em;
   margin-top: 5%;
+  margin-right: 10%;
   overflow: scroll;
 }
 
-#recentComment {
+.recentComment {
   text-align: left;
   margin-left: 5%;
+  font-style: italic;
+  font-size: 1em;
+  color: darkred;
+}
+
+.postedOn {
+  float: right;
+  margin-bottom: 5%;
+  margin-right: 5%;
 }
 
 #articleTitle {
@@ -89,14 +165,40 @@ body {
   width: 50%;
   margin: 0 auto;
   padding-bottom: 2%;
+  font-size: 1.5em;
+}
+
+#articleVotes {
+  padding-top: 5%;
+  border: solid red 5px;
+  width: 10%;
+  margin: 0 auto;
+  font-size: 1em;
 }
 
 .moreBy {
   text-align: right;
+  font-size: 1.5em;
   width: 50%;
   margin: 0 auto;
   padding-bottom: 2%;
   margin-top: 10%;
+}
+
+#browseMoreArticles {
+  font-size: 1.5em;
+  font-family: fantasy;
+  color: darkred;
+}
+
+.allItemsTitle {
+  font-size: 2.5em;
+  color: darkred;
+}
+
+.postItemSubheading {
+  color: orangered;
+  font-size: 2em;
 }
 
 #avatarImg {
@@ -114,35 +216,58 @@ footer {
   margin-top: 2em;
 }
 
-.commentData {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 3%;
-  background-color: ivory;
+.userProfile {
+  color: orange;
+  font-size: 2em;
+  font-family: fantasy;
 }
 
-.votingAndPosting {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 3%;
-  border: solid springgreen 1px;
-  margin-bottom: 3%;
+.user {
+  border-bottom: solid darkred 2px;
+  margin: 2%;
 }
 
-.votingAndPostingComment {
-  background-color: ivory;
-  border: solid green 5px;
-  width: 50%;
-  margin: 0 auto;
-  margin-bottom: 2%;
-}
+  .commentData {
+    color: darkred;
+    font-size: 2.5em;
+    width: 70%;
+    margin-bottom: 1em;
+    margin: 0 auto;
+    margin-top: 3%;
+    background-color: ivory;
+  }
 
-.voteButton {
-  width: 5em;
-  margin-bottom: 1%;
-}
+  .postTextBox {    width: 20em;
+    height: 5em;
+    background: ivory;
+    color: orangered;
+    font-size: 1.5em;
+    font-family: fantasy;
+    font-weight: bolder;
+    border-radius: 5%;
+  }
+
+  .submitButton {
+    background: yellow;
+    margin-bottom: 1em;
+    height: 2.5em;
+    width: 6em;
+    font-size: 1.2em;
+    color: orangered;
+    font-family: fantasy;
+    font-weight: bolder;
+    border-radius: 10%;
+  }
+
+  .voteButton {
+    width: 2em;
+    color: orangered;
+    margin-bottom: 1%;
+    height: 2em;
+    font-size: 2em;
+    background: yellow;
+    border-radius: 10%;
+  }
 
 .deleteButtonDiv {
   width: 50%;
@@ -152,6 +277,288 @@ footer {
 
 .deleteButton {
   float: center;
-  background-color: red;
+  background-color: yellow;
+  font-size: 1.2em;
+  color: orangered;
+  font-family: fantasy;
+  font-weight: bolder;
   margin: 1%;
+  border-radius: 10%;
+}
+
+
+@media screen and (min-width: 350px) and (max-width: 1400px) {
+
+  .headerTitle {
+    text-decoration: none;
+    color: darkred;
+    font-size: 1em;
+    width: 100%;
+  }
+
+  #navHeader {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  font-size: 50%;
+  padding-top: 1%;
+}
+
+.navButton {
+  justify-content: space-evenly;
+  font-size: 1.9em;
+  text-align: center;
+  text-decoration: none;
+  color: orangered;
+  font-weight: bold;
+}
+
+  #topicsContainer {
+    display: flex;
+    direction: row;
+    font-size: 5px;
+    padding-top: 0;
+    border-bottom: solid orangered 2px;
+  }
+
+  #mainContainer {
+    display: block;
+  }
+
+  #topicsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: ivory;
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .topicTitle {
+    font-size: 2.2em;
+    color: darkred;
+  }
+
+  .topic {
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: bold;
+    width: 20%;
+    padding-left: 3%;
+    text-decoration: none;
+    color: darkred;
+  }
+
+  #popularArticles {
+    border: solid orange 2px;
+    width: 80%;
+    margin: 5%;
+    margin-left: 10%;
+    padding: 2%;
+    overflow: scroll;
+  }
+
+  .subheading {
+    text-decoration: underline;
+    color: orangered;
+    font-size: 100%;
+    text-align: center;
+  }
+
+  .homePageItems {
+    font-size: 0.8em;
+  }
+
+  .postedOn {
+    text-align: right;
+    margin-left: 10%;
+    font-size: 0.6em;
+  }
+
+  .articlePostedBy {
+    margin-left: 20%;
+    font-size: 0.6em;
+  }
+
+  #mostRecentComments {
+    color: darkred;
+    text-align: left;
+    border: solid orange 2px;
+    width: 85%;
+    height: 10em;
+    margin: 5%;
+    overflow: scroll;
+  }
+
+  .recentComment {
+    text-align: left;
+    margin-left: 5%;
+    font-style: italic;
+    font-size: 1em;
+    color: darkred;
+  }
+
+  .postedOnComment {
+    float: right;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-left: 10%;
+    font-size: 0.6em;
+  }
+
+  .link {
+    text-decoration: none;
+    color: darkred;
+    text-decoration: underline;
+  }
+
+  #allArticlesList {
+    margin-left: 5%;
+    margin-right: 5%;
+    color: darkred;
+    font-weight: bolder;
+  }
+
+  #articleTitle {
+    color: orangered;
+    font-size: 1.5em;
+    font-family: cursive;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+
+  #articleBody {
+    margin-top: 1em;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.4em;
+    font-family: cursive;
+  }
+
+  .authorName {
+    text-align: right;
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+  }
+
+  .moreBy {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2%;
+    margin-top: 10%;
+  }
+
+  #avatarImg {
+    max-width: 15em;
+    max-height: 15em;
+  }
+
+  footer {
+    margin-top: 5em;
+  }
+
+  #browseMoreArticles {
+    margin-top: 0;
+    font-family: fantasy;
+    color: brown;
+  }
+
+  .allItemsTitle {
+    font-size: 1.5em;
+    color: darkred;
+    font-family: fantasy;
+  }
+
+  .postItemSubheading {
+    color: orangered;
+    font-family: fantasy;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .user {
+    display: inline-block;
+    min-width: 30%;
+    margin-top: 2em;
+  }
+
+  .userProfile {
+    color: orangered;
+    font-family: fantasy;
+    width: 90%;
+  }
+
+  #avatarImg {
+    padding-bottom: 5%;
+    border-bottom: solid orangered 3px;
+  }
+
+  .commentData {
+    color: darkred;
+    font-family: fantasy;
+    font-size: 1.5em;
+    width: 70%;
+    margin-bottom: 1em;
+    margin: 0 auto;
+    margin-top: 3%;
+    background-color: ivory;
+  }
+
+  .votingAndPosting {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1em;
+    border: none;
+    margin-bottom: 3%;
+    color: darkred;
+  }
+
+  .votingAndPostingComment {
+    background-color: ivory;
+    color: darkred;
+    border: none;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+  }
+
+  .postTextBox {
+    background: ivory;
+    color: orangered;
+    font-family: fantasy;
+    font-weight: bolder;
+    border-radius: 5%;
+  }
+
+  .submitButton {
+    background: yellow;
+    margin-bottom: 1em;
+    color: orangered;
+    font-family: fantasy;
+    font-weight: bolder;
+    border-radius: 10%;
+  }
+
+  .voteButton {
+    width: 5em;
+    color: orangered;
+    margin-bottom: 1%;
+    background: yellow;
+    border-radius: 10%;
+  }
+
+  .deleteButton {
+    float: center;
+    background-color: yellow;
+    color: orangered;
+    font-family: fantasy;
+    font-weight: bolder;
+    margin: 1%;
+    border-radius: 10%;
+  }
 }

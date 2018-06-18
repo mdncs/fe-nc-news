@@ -9,8 +9,8 @@ class PostComment extends Component {
     render() {
         return <React.Fragment>
             <div>
-                <p onChange={e => this.handleInput(e)}><textarea placeholder='Your comment here' /></p>
-                <button onClick={this.submitComment}>Post comment</button>
+                <p onChange={e => this.handleInput(e)}><textarea className='postTextBox' placeholder='Your comment here' /></p>
+                <button className='submitButton' onClick={this.submitComment}>Post comment</button>
             </div>
         </React.Fragment>
     }

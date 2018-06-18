@@ -10,16 +10,19 @@ class Users extends Component {
     }
 
     componentDidMount() {
-        api.fetchUsers().then(users => this.setState({ users }));
+        api.fetchUsers().then(users => this.setState({ users }))
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
     }
 
     render() {
         return <div>
             {this.state.users.map(({ name, _id, username, avatar_url }) => {
                 return <div className='user' key={_id}>
+                    <h2 className='userProfile' >Name: {name}</h2>
+                    <h2 className='userProfile'>Username: <Link to={`/users/${username}`}>{username}</Link></h2>
                     <img id='avatarImg' src={avatar_url} onError={(e) => e.target.src = `${userPlaceholderImg}`} alt='avatar' />
-                    <p className='userInfo'>Username: <Link to={`/users/${username}`}>{username}</Link></p>
-                    <p className='userInfo'>Name: {name}</p>
                 </div>
             })}
         </div>

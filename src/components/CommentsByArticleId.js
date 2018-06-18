@@ -15,7 +15,10 @@ class CommentsByArticleId extends Component {
             api.fetchCommentsByArticleId(this.props.match.params.articleId),
             api.fetchArticles()
         ])
-        .then(([comments, articles]) => this.setState({ comments, articles }));
+        .then(([comments, articles]) => this.setState({ comments, articles }))
+        .catch(err => {
+            if (err.response.status) this.props.history.push(`/${err.response.status}`);
+        });
     }
 
     render() {

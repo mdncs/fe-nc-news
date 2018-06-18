@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Topics from './Topics';
 import Articles from './Articles';
 import MostRecentComments from './MostRecentComments';
 import * as api from '../api';
+import Topics from './Topics';
 
 class HomePage extends Component {
 
@@ -36,7 +36,7 @@ class HomePage extends Component {
                     users={this.state.users} articles={this.state.articles} />
             </div>
             <div id='popularArticles'>
-                <div id='popularArticle'>
+                <div>
                     <h3 className='subheading'>Most popular articles:</h3>
                     <Articles />
                 </div>
