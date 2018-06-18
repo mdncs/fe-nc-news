@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as api from '../api';
+import { filterItem } from '../utils';
 
 class ArticlesByTopicId extends Component {
     state = {
@@ -27,7 +28,7 @@ class ArticlesByTopicId extends Component {
     render() {
         const { articles, topics, users } = this.state;
         if (!articles.length) return null;
-        const topic = topics.filter(({ _id }) => _id === this.props.match.params.topicId)[0];
+        const topic = filterItem(topics, this.props.match.params.topicId);
         return (
             <React.Fragment>
                 <h1 id='articleTitle'>Articles about {topic.slug}</h1>

@@ -14,12 +14,11 @@ class VoteComment extends Component {
         .catch(err => {
             if (err.response.status) this.props.history.push(`/${err.response.status}`);
         });
-
     }
 
     render() {
         if (!this.state.users.length) return null;
-        const user = this.state.users.filter(user => user._id === this.state.comment.created_by)[0];
+        const user = utils.filterItem(this.state.users, this.state.comment.created_by);
         return <div className='votingAndPostingComment'>
                 <p className='postedOn'>posted by <Link to={`/users/${user.username}`}>{`${user.username}`}</Link> {utils.getTimeDiff(this.state.comment.created_at)} </p>
             <div className='voting'>

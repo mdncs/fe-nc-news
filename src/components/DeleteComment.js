@@ -19,7 +19,10 @@ class DeleteComment extends Component {
         .catch(err => {
             if (err.response.status) this.props.history.push(`/${err.response.status}`);
         })
-        .then(() => window.location.reload(true));
+        .then(() => {
+            alert('Your comment was deleted!');
+            window.location.reload(true);
+        });
     }
 }
 

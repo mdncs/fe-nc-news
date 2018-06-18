@@ -3,6 +3,7 @@ import * as api from '../api';
 import PostComment from './PostComment';
 import VoteComment from './VoteComment';
 import DeleteComment from './DeleteComment';
+import { filterItem } from '../utils';
 
 class CommentsByArticleId extends Component {
     state = {
@@ -23,10 +24,10 @@ class CommentsByArticleId extends Component {
 
     render() {
         const { comments, articles } = this.state;
-        const article = articles.filter(article => article._id === this.props.match.params.articleId);
+        const article = filterItem(articles, this.props.match.params.articleId);
         if (!comments) return null;
         return <div>
-            <PostComment article={article[0]}/>
+            <PostComment article={article}/>
             <div>
                 {comments.sort((a, b) => b.votes - a.votes).map(comment => {
                     return <div key={comment._id}>

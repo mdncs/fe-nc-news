@@ -5,8 +5,13 @@ import '../404error.css';
 class Error404 extends Component  {
     render() {
         return <div>
-            <p>Ooops, looks like this page doesn't exist :(</p>
-            <Link to={`/`} className='goBackHome'><button>Go back home</button></Link>
+            <div class='sorryMessage'>
+                <p><span className='errCode'>404</span> - I'm sorry, looks like this page doesn't exist...</p>
+                <p>Pleaaase <Link to={`/`} className='goBackHomeLink'>go back</Link> or check the link is correct.</p>           
+            </div>
+            <div id='err404img'>
+                <img src='https://i.ytimg.com/vi/9XfkZlcG8KU/maxresdefault.jpg' alt='sorry'/>
+            </div>
         </div>
     }
 }

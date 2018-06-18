@@ -275,6 +275,11 @@ footer {
     border-radius: 10%;
   }
 
+  .voting {
+    border-bottom: solid darkred 2px;
+    padding-bottom: 1em;
+  }
+
 .deleteButtonDiv {
   width: 50%;
   margin-bottom: 2%;
@@ -537,14 +542,20 @@ footer {
   }
 
   .postTextBox {
+    font-size: 1em;
+    width: 15em;
+    height: 3em;
     background: ivory;
     color: orangered;
     font-family: fantasy;
     font-weight: bolder;
-    border-radius: 5%;
+    border-radius: 2%;
+    text-align: center;
   }
 
   .submitButton {
+    font-size: 0.8em;
+    width: 5em;
     background: yellow;
     margin-bottom: 1em;
     color: orangered;
@@ -554,7 +565,9 @@ footer {
   }
 
   .voteButton {
-    width: 5em;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1em;
     color: orangered;
     margin-bottom: 1%;
     background: yellow;
@@ -569,5 +582,8 @@ footer {
     font-weight: bolder;
     margin: 1%;
     border-radius: 10%;
+    width: 4em;
+    height: 2em;
+    font-size: 1em;
   }
 }

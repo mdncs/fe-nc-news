@@ -29,7 +29,7 @@ class PostComment extends Component {
         }
         api.postComment(this.props.article._id, newComment)
         .catch(err => {
-            if (err.response.status) alert('Your comment cannot be empty');
+            if (err.response.status) alert('Your comment should not be empty :(');
         })
         .then(() => this.setState({
             body: ''

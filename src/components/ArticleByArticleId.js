@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import * as api from '../api';
 import VoteArticle from './VoteArticle';
 import CommentsByArticleId from './CommentsByArticleId';
+import { filterItem } from '../utils';
 
 class ArticleByArticleId extends Component {
     state = {
@@ -28,8 +29,8 @@ class ArticleByArticleId extends Component {
         const { article, users, topics } = this.state;
         if (!article) return null;
         else {
-            const username = users.filter(({ _id }) => _id === article.created_by)[0].username;
-            const topic = topics.filter(({ _id }) => _id === article.belongs_to)[0];
+            const username = filterItem(users, article.created_by).username;
+            const topic = filterItem(topics, article.belongs_to);
             return <React.Fragment>
                 <div id='articleData'>
                     <h1 id='articleTitle'><Link to={`/articles/${article._id}`} key={article._id} className='link'>{article.title}</Link></h1>
@@ -39,11 +40,11 @@ class ArticleByArticleId extends Component {
                         <VoteArticle {...this.props}/>
                     </div>
                     <h6 className='moreBy'><Link to={`/users/${username}`} className='link'>(more articles by {username})</Link></h6>
-                    <footer id='browseMoreArticles'>Browse more articles in <Link to={`/topics/${topic._id}/articles`} class='link'>{topic.title}</Link> </footer>
+                    <footer id='browseMoreArticles'>Browse more articles in <Link to={`/topics/${topic._id}/articles`} className='link'>{topic.title}</Link> </footer>
                 </div>
                 <div id='commentData'>
-                    <h2 className='allItemsTitle'>All <Link to={`/articles/${article._id}/comments`} className='link' class='link'>comments</Link> for this article</h2>
-                    <h3 class='postItemSubheading'>Post a comment</h3>
+                    <h2 className='allItemsTitle'>All <Link to={`/articles/${article._id}/comments`} className='link'>comments</Link> for this article</h2>
+                    <h3 className='postItemSubheading'>Post a comment</h3>
                     <CommentsByArticleId {...this.props} />
                 </div>
             </React.Fragment>
