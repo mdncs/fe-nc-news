@@ -18,3 +18,10 @@ button {
     font-weight: bold;
     font-size: 1.5em;
 }
+
+@media screen and (min-width: 320px) and (max-width: 1400px) {
+    .goBackHome{
+        position: relative;
+        top: 23em;
+    }
+}
