@@ -59,6 +59,6 @@ GET /api/users/:username: Returns a JSON object with the profile data for the sp
 
 Step 3 - Deployment
 
-The API used for the Northcoders News is hosted on Heroku here: https://be2-nc-news.herokuapp.com
+The API used for the Northcoders News is hosted on Heroku here: https://dashboard.heroku.com/apps/back-end-nc-news
 
 The React App is also hosted on Heroku here: https://fe-nc-news-react.herokuapp.com/
