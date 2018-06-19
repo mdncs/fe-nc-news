@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://be2-nc-news.herokuapp.com/api';
+const url = 'https://back-end-nc-news.herokuapp.com/api';
 
 export const fetchArticles = () => {
     return axios.get(`${url}/articles`).then(res => res.data.articlesArr);

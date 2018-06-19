@@ -27,7 +27,7 @@ class Articles extends Component {
     }
 
     render() {
-        const { articles, topics, comments } = this.state;
+        const { articles, topics } = this.state;
 
         
         return (
