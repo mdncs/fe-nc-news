@@ -5,7 +5,7 @@ import { filterItem } from '../utils';
 
 class ArticlesByTopicId extends Component {
     state = {
-        articles: [],
+        articles: null,
         topics: [],
         users: []
     }
@@ -27,7 +27,7 @@ class ArticlesByTopicId extends Component {
 
     render() {
         const { articles, topics, users } = this.state;
-        if (!articles.length) return null;
+        if (!articles) return null;
         const topic = filterItem(topics, this.props.match.params.topicId);
         return (
             <React.Fragment>
