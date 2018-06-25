@@ -32,7 +32,7 @@ class UserByUsername extends Component {
             <img id='avatarImg' src={user.avatar_url} onError={(e) => e.target.src = `${userPlaceholderImg}`} alt='avatar'/>
             <h3 className='userProfile'>I know you're curious so here's some recent articles I posted: </h3>
                 {articlesByUser.map(article => {
-                    return <div>
+                    return <div key={article._id}>
                         <h4 key={article._id}>- <Link to={`../articles/${article._id}`} key={article._id} className='link'>{article.title}</Link> ({article.votes} votes) </h4>
                     </div>
                 })}
