@@ -6,7 +6,7 @@ class Error404 extends Component {
     render() {
         return <div>
             <div class='sorryMessage'>
-                <p><span className='errCode'>404</span> - I'm sorry, something went wrong...</p>
+                <p><span className='errCode'></span>I'm sorry, something went wrong...</p>
                 <p>Pleaaase <Link to={`/`} className='goBackHomeLink'>go back</Link> or check the link is correct.</p>
             </div>
             <div id='err404img'>

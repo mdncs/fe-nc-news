@@ -1,30 +1,31 @@
-#Northcoders News Reddit-like App
+# Northcoders News Reddit-like App
 
-#Project Title
+## Project Title
 
 This is a repository for a basic news website based on the NC-news API built with Express.js and MongoDB with Mongoose models.
 
-Getting Started
+## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Prerequisites
+## Prerequisites
 The packages and dependences required for running this API are available in the package.json file and can be installed by running the following command: npm i
 
 This app uses React.js 16.4.0 with React Dom 16.4.0, React Router Dom 4.3.1 and React Scripts 1.1.4.
 Axios 0.18.0 has been used for fetching data from the API database.
 
-Installing
+## Installing
 
 All packages needed can be found in the package.json file and can be installed by running npm install.
 
-Step 1 - Starting the deployment server on port 3000
+Step 1 - Starting the deployment server locally on port 3000
 
-"start": "react-scripts start",
-"build": "react-scripts build",
-"test": "react-scripts test --env=jsdom",
-"eject": "react-scripts eject"
+- "start": "react-scripts start",
+- "build": "react-scripts build",
+- "test": "react-scripts test --env=jsdom",
+- "eject": "react-scripts eject"
 
-Routes
+## Routes
+
 Topics
 
 GET /api: Serves an HTML page with documentation for all the available endpoints
@@ -57,8 +58,8 @@ Users
 
 GET /api/users/:username: Returns a JSON object with the profile data for the specified user.
 
-Step 3 - Deployment
+## Step 3 - Deployment
 
-The API used for the Northcoders News is hosted on Heroku here: https://dashboard.heroku.com/apps/back-end-nc-news
+The API used for the Northcoders News is hosted on Heroku here: https://back-end-nc-news.herokuapp.com/api
 
 The React App is also hosted on Heroku here: https://fe-nc-news-react.herokuapp.com/
